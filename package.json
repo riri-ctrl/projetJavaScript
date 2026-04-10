@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "process": "node ReadFile.js",
     "start": "node split.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
