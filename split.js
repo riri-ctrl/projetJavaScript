@@ -2,10 +2,12 @@ const data = require("./ReadFile");
 
 
 const traitement_texte =(texte) => {
-    texte=texte.toLowerCase()
-    texte=texte.replace(/[^a-zA-Z0-9éèàôêÏËîçù \n]/g, "")
-    texte=texte.replace(/[\n]/g," ")
-    return texte
+    texte=texte.toLowerCase();
+    texte=texte.replace(/[^\p{L}\s']/gu, " ");
+    texte=texte.replace(/\s+/g," ");
+    texte = texte.trim(); // gérer les blanc exemple: regarder le premier élément de la liste
+    tokens = texte.split(" ");
+    return tokens;
 
 }
 
