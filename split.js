@@ -9,4 +9,5 @@ const traitement_texte =(texte) => {
 
 }
 
+
 console.log("Contenu du fichier :\n", traitement_texte(data));
