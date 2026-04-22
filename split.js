@@ -10,26 +10,49 @@ const traitement_texte =(texte) => {
     return tokens;
 
 }
-const dic_mot_suivant=(texte) => {
+const dic_mot_suivant = (texte) => {
     const words = traitement_texte(texte);
     const dictionary = {};
 
-// build the dictionary
-    for (let i = 0; i < words.length; i++) {
-        const result = dictionary[`${words[i]} `];
+    for (let i = 0; i < words.length - 1; i++) {
         const currentWord = words[i];
+        const nextWord = words[i + 1];
 
-        const NextWord = words[i + 1];
+        if (!dictionary[currentWord]) {
+            dictionary[currentWord] = {};
+        }
 
-        if (NextWord == null) {
-            break
-        } // end of sample reached
-        if (!result) {
-            dictionary[`${currentWord} `] = new Array(NextWord);
+        if (!dictionary[currentWord][nextWord]) {
+            dictionary[currentWord][nextWord] = 1;
         } else {
-            dictionary[`${currentWord} `] = dictionary[`${currentWord} `].concat(NextWord);
+            dictionary[currentWord][nextWord]++;
         }
     }
+
     return dictionary;
-}
-console.log(dic_mot_suivant(data));
+};
+
+const countsToProbabilities = (dictionary) => {
+    const probabilities = {};
+
+    for (const word in dictionary) {
+        const nextWords = dictionary[word];
+
+        let total = 0;
+        for (const nextWord in nextWords) {
+            total += nextWords[nextWord];
+        }
+
+        probabilities[word] = {};
+
+        for (const nextWord in nextWords) {
+            probabilities[word][nextWord] =
+                Number((nextWords[nextWord] / total).toFixed(3));
+        }
+    }
+
+    return probabilities;
+};
+
+//console.log(dic_mot_suivant(data));
+console.log(countsToProbabilities(dic_mot_suivant(data)));
