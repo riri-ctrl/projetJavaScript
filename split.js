@@ -10,6 +10,26 @@ const traitement_texte =(texte) => {
     return tokens;
 
 }
+const dic_mot_suivant=(texte) => {
+    const words = traitement_texte(texte);
+    const dictionary = {};
 
+// build the dictionary
+    for (let i = 0; i < words.length; i++) {
+        const result = dictionary[`${words[i]} `];
+        const currentWord = words[i];
 
-console.log("Contenu du fichier :\n", traitement_texte(data));
+        const NextWord = words[i + 1];
+
+        if (NextWord == null) {
+            break
+        } // end of sample reached
+        if (!result) {
+            dictionary[`${currentWord} `] = new Array(NextWord);
+        } else {
+            dictionary[`${currentWord} `] = dictionary[`${currentWord} `].concat(NextWord);
+        }
+    }
+    return dictionary;
+}
+console.log(dic_mot_suivant(data));
