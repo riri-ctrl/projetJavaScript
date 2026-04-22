@@ -56,3 +56,7 @@ const countsToProbabilities = (dictionary) => {
 
 //console.log(dic_mot_suivant(data));
 console.log(countsToProbabilities(dic_mot_suivant(data)));
+
+
+//https://codepen.io/AWaselnuk/pen/GjEaMo?anon=true&view=pen
+//https://github.com/TobiasNickel/js-markov/blob/master/src/markov.js#L33
