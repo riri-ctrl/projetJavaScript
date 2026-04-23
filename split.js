@@ -3,18 +3,17 @@ import data from './ReadFile.js';
 //const data = require("./ReadFile");
 
 
+const traitement_texte= R.pipe(
+    R.toLower(),
+    R.replace(/[^\p{L}\s']/gu, " "),
+    R.replace(/\s+/g, " "),
+    R.trim,
+    R.split(' ')
+)(data);
 
-const traitement_texte =(texte) => {
-    texte=texte.toLowerCase();
-    texte=texte.replace(/[^\p{L}\s']/gu, " ");
-    texte=texte.replace(/\s+/g," ");
-    texte = texte.trim(); // gérer les blanc exemple: regarder le premier élément de la liste
-    texte = texte.split(" ");
-    return texte;
 
-}
 const dic_mot_suivant = (texte) => {
-    const words = traitement_texte(texte);
+    const words = traitement_texte;
     const dictionary = {};
 
     for (let i = 0; i < words.length - 1; i++) {
