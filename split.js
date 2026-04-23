@@ -1,4 +1,7 @@
-const data = require("./ReadFile");
+import * as R from 'ramda';
+import data from './ReadFile.js';
+//const data = require("./ReadFile");
+
 
 
 const traitement_texte =(texte) => {
@@ -6,8 +9,8 @@ const traitement_texte =(texte) => {
     texte=texte.replace(/[^\p{L}\s']/gu, " ");
     texte=texte.replace(/\s+/g," ");
     texte = texte.trim(); // gérer les blanc exemple: regarder le premier élément de la liste
-    tokens = texte.split(" ");
-    return tokens;
+    texte = texte.split(" ");
+    return texte;
 
 }
 const dic_mot_suivant = (texte) => {
