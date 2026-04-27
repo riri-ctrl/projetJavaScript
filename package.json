@@ -2,6 +2,7 @@
   "name": "untitled",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "process": "node ReadFile.js",
