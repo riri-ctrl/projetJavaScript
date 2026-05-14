@@ -16,6 +16,7 @@
     "@biomejs/biome": "2.4.8"
   },
   "dependencies": {
+    "file-system": "^2.2.2",
     "ramda": "^0.32.0"
   }
 }
