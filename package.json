@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "process": "node ReadFile.js",
-    "start": "node split.js",
+    "start": "node markovModel.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
