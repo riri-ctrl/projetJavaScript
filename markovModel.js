@@ -1,6 +1,4 @@
 import * as R from 'ramda';
-import data from './ReadFile.js';
-//const data = require("./ReadFile");
 
 const traitementTexte = R.pipe(
     R.toLower,
@@ -38,4 +36,6 @@ const buildModel = (text, order=1) =>
         countsToProbs
     )(text);
 
-console.log(buildModel(data));
+export default buildModel;
+//console.log(buildModel(data));
+
